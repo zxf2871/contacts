@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\work\\contacts\\app\\build\\intermediates\\res\\merged\\debug\\layout\\nav_header_main.xml",
-        "source": "D:\\work\\contacts\\app\\src\\main\\res\\layout\\nav_header_main.xml"
-    },
-    {
         "merged": "D:\\work\\contacts\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
         "source": "D:\\work\\contacts\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "D:\\work\\contacts\\app\\build\\intermediates\\res\\merged\\debug\\layout\\nav_header_main.xml",
+        "source": "D:\\work\\contacts\\app\\src\\main\\res\\layout\\nav_header_main.xml"
     },
     {
         "merged": "D:\\work\\contacts\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
@@ -86,6 +86,10 @@
     {
         "merged": "D:\\work\\contacts\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "D:\\work\\contacts\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.2.1\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "D:\\work\\contacts\\app\\build\\intermediates\\res\\merged\\debug\\layout\\login.xml",
+        "source": "D:\\work\\contacts\\app\\src\\main\\res\\layout\\login.xml"
     },
     {
         "merged": "D:\\work\\contacts\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
