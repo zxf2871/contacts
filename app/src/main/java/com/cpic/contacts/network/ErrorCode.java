@@ -5,11 +5,11 @@ package com.cpic.contacts.network;
  */
 public class ErrorCode {
     public static final int ERROR_NET = 1;
-    public static final int ERROR_REQFREQ = 3;
-    public static final int ERROR_OTHER = 4;
-    public static final int ERROR_REQUEST = 5;
     public static final int ERROR_FORMAT = 6;
-    public static final int ERROR_TOKEN = 7;
-
+    public static final int ERROR_NO_RESPONSE = 8;
     public static final int NO_ERROR = 0;
+
+    public static final int RESPONSE_TOKEN_ERROR = 0;//token错误
+    public static final int RESPONSE_UNEXPECTED = 1; //不合要求
+    public static final int RESPONSE_PARAMS_ERROR = 2; //不合要求
 }

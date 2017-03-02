@@ -19,19 +19,19 @@ package com.cpic.contacts.utils;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.cpic.contacts.login.source.UserRepository;
-import com.cpic.contacts.login.source.remote.UserRemoteDataSource;
+import com.cpic.contacts.login.source.LoginRepository;
+import com.cpic.contacts.login.source.remote.LoginRemoteDataSource;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Enables injection of production implementations for
- * {@link UserRepository} at compile time.
+ * {@link LoginRepository} at compile time.
  */
 public class Injection {
 
-    public static UserRepository provideTasksRepository(@NonNull Context context) {
+    public static LoginRepository provideTasksRepository(@NonNull Context context) {
         checkNotNull(context);
-        return UserRepository.getInstance(UserRemoteDataSource.getInstance());
+        return LoginRepository.getInstance(LoginRemoteDataSource.getInstance());
     }
 }

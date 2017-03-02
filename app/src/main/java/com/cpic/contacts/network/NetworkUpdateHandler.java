@@ -8,6 +8,7 @@ import android.text.TextUtils;
 
 import com.cpic.contacts.thread.UpdateHandler;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -15,9 +16,14 @@ import java.util.Map;
 public abstract class NetworkUpdateHandler extends UpdateHandler {
 
     private List<NameValuePair> mParams = null;
+    private String mResponse;
+    private String url;
+    private int code = ErrorCode.NO_ERROR;
 
-    public NetworkUpdateHandler(Context context) {
+    public NetworkUpdateHandler(Context context, String url, Map<String, String> params) {
         super(context);
+        this.url = url;
+        setParams(params);
     }
 
     @Override
@@ -31,7 +37,7 @@ public abstract class NetworkUpdateHandler extends UpdateHandler {
             mParams = new ArrayList<>();
         }
 
-        mParams.add(new NameValuePair("dit", ""));
+//        mParams.add(new NameValuePair("dit", ""));
     }
 
     protected void setParams(String name, String value) {
@@ -53,4 +59,39 @@ public abstract class NetworkUpdateHandler extends UpdateHandler {
     }
 
 
+    @Override
+    public boolean doUpdateNow() {
+        mResponse = null;
+        try {
+            mResponse = Network.doHttpPost(mContext, url, getParams());
+        } catch (IOException e) {
+            e.printStackTrace();
+            code = ErrorCode.ERROR_NET;
+            return false;
+        }
+        if (TextUtils.isEmpty(mResponse)) {
+            code = ErrorCode.ERROR_NO_RESPONSE;
+            return false;
+        }
+        if (!analyseResponse(mResponse)) {
+            code = ErrorCode.ERROR_FORMAT;
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    protected abstract boolean analyseResponse(String response);
+    protected abstract boolean success(String response);
+    protected abstract boolean fail(int code);
+
+    @Override
+    public void doUpdateSuccess() {
+        success(mResponse);
+    }
+
+    @Override
+    public void doUpdateFail() {
+        fail(code);
+    }
 }

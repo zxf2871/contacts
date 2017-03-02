@@ -570,9 +570,11 @@
     <string name="login">登录</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="password_erorr">密码为空</string>
     <string name="search_menu_title">Search</string>
     <string name="splash_start">启动</string>
     <string name="status_bar_notification_info_overflow">999+</string>
+    <string name="user_erorr">用户名为空</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

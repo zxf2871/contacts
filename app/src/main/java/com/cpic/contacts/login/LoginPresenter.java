@@ -2,7 +2,7 @@ package com.cpic.contacts.login;
 
 import android.support.annotation.NonNull;
 
-import com.cpic.contacts.login.source.UserDataSource;
+import com.cpic.contacts.login.source.LoginDataSource;
 
 /**
  * Created by Administrator on 2017/3/1.
@@ -10,11 +10,11 @@ import com.cpic.contacts.login.source.UserDataSource;
 
 public class LoginPresenter implements LoginContract.Presenter {
 
-    private UserDataSource mRepository;
+    private LoginDataSource mRepository;
     private LoginContract.View mView;
 
 
-    public LoginPresenter(@NonNull LoginContract.View view,@NonNull UserDataSource repository){
+    public LoginPresenter(@NonNull LoginContract.View view,@NonNull LoginDataSource repository){
         this.mRepository = repository;
         this.mView = view;
     }
@@ -26,7 +26,17 @@ public class LoginPresenter implements LoginContract.Presenter {
     }
 
     @Override
-    public void login(String userName) {
-        User user = mRepository.getUser(userName);
+    public void login(String userName, String password) {
+        mRepository.login(userName, password, new LoginDataSource.LoginCallback() {
+            @Override
+            public void onLoginSuccess(String token) {
+                mView.loginSuccess();
+            }
+
+            @Override
+            public void onLoginError(String massage) {
+                mView.loginError(massage);
+            }
+        });
     }
 }
